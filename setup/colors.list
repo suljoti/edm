@@ -2,7 +2,7 @@
 
 blinkms=750
 max=0x10000
-columns=5
+columns=10
 
 alias trace0 red-21
 alias trace1 blue-26
@@ -15,189 +15,346 @@ alias trace7 "CRYO title"
 alias trace8 "RF title"
 alias trace9 "UNSS title"
 
-static 0   "Disconn/Invalid"  { 65535 65535 65535 }    #0 white
-static 1   "grey-1"           { 60652 60652 60652 }    #
-static 2   "grey-2"           { 56026 56026 56026 }    #
-static 3   "GLOBAL canvas"    { 51400 51400 51400 }    #
-static 4   "grey-4"           { 48059 48059 48059 }    #
-static 5   "Wid-alt/Anno-sec" { 44718 44718 44718 }    #5
-static 6   "GLOBAL title"     { 40606 40606 40606 }    #
-static 7   "grey-7"           { 37265 37265 37265 }    #
-static 8   "grey-8"           { 34181 34181 34181 }    #
-static 9   "GLOBAL help"      { 30840 30840 30840 }    #
-static 10  "Wid-bg/Anno-pri"  { 26985 26985 26985 }    #10
-static 11  "grey-11"          { 23130 23130 23130 }    #
-static 12  "grey-12"          { 17990 17990 17990 }    #
-static 13  "grey-13"          { 11565 11565 11565 }    #
-static 14  "black-14"         {     0     0     0 }    #
-static 15  "Monitor: NORMAL"  {     0 65535     0 }    #15 green
-static 16  "green-16"         {     0 57568     0 }    #
-static 17  "Monitor: alt"     {     0 49344     0 }    #
-static 18  "green-18"         {     0 41120     0 }    #
-static 19  "green-19"         {     0 32896     0 }    #
-static 20  "Monitor: MAJOR"   { 65535     0     0 }    #20 red
-static 21  "red-21"           { 57568     0     0 }    #
-static 22  "Mon: MAJOR/unack" { 49344     0     0 }    #
-static 23  "red-23"           { 41120     0     0 }    #
-static 24  "red-24"           { 32896     0     0 }    #
-static 25  "Controller"       {     0     0 65535 }    #25 blue
-static 26  "blue-26"          {     0     0 57568 }    #
-static 27  "blue-27"          {     0     0 49344 }    #
-static 28  "blue-28"          {     0     0 41120 }    #
-static 29  "blue-29"          {     0     0 32896 }    #
-static 30  "Controller/alt"   {     0 65535 65535 }    #30 cyan
-static 31  "cyan-31"          {     0 57568 57568 }    #
-static 32  "cyan-32"          {     0 49344 49344 }    #
-static 33  "cyan-33"          {     0 41120 41120 }    #
-static 34  "cyan-34"          {     0 32896 32896 }    #
-static 35  "Monitor: MINOR"   { 65535 65535     0 }    #35 yellow
-static 36  "yellow-36"        { 57568 57568     0 }    #
-static 37  "Mon: MINOR/unack" { 49344 49344     0 }    #
-static 38  "yellow-38"        { 41120 41120     0 }    #
-static 39  "yellow-39"        { 32896 32896     0 }    #
-static 40  "Shell/reldsp-alt" { 65535 45232 24672 }    #40 orange
-static 41  "orange-41"        { 57568 39578 21588 }    #
-static 42  "orange-42"        { 49344 33924 18504 }    #
-static 43  "brown-43"         { 41120 28270 15420 }    #
-static 44  "Related display"  { 32896 22616 12336 }    # brown
-static 45  "Exit/Quit/Kill"   { 65535     0 65535 }    #45 purple
-static 46  "purple-46"        { 49344     0 49344 }    #
-static 47  "purple-47"        { 32896     0 32896 }    #
-static 48  "48"               {     0     0     0 }    #
-static 49  "49"               {     0     0     0 }    #
-static 50  "LINAC canvas"     { 52736 56320 52480 }    #50
-static 51  "LINAC title"      { 47360 50688 47104 }    #
-static 52  "LINAC help"       { 42496 45568 42240 }    #
-static 53  "VAC title"        { 57600 63488 45312 }    #
-static 54  "VAC help"         { 51712 57088 40704 }    #
-static 55  "FE canvas"        { 62708 56026 43176 }    #55
-static 56  "FE title"         { 47031 42148 32382 }    #
-static 57  "FE help"          { 31354 28013 21588 }    #
-static 58  "COOL title"       { 46336 63744 55040 }    #
-static 59  "COOL help"        { 41472 57344 49408 }    #
-static 60  "RING canvas"      { 49664 55808 55552 }    #60
-static 61  "RING title"       { 44544 50176 49920 }    #
-static 62  "RING help"        { 39936 45056 44800 }    #
-static 63  "CRYO title"       { 45056 55808 63744 }    #
-static 64  "CRYO help"        { 40448 50176 57344 }    #
-static 65  "TARGET canvas"    { 52480 51712 56576 }    #65
-static 66  "TARGET title"     { 47104 46336 50688 }    #
-static 67  "TARGET help"      { 42240 41472 45568 }    #
-static 68  "RF title"         { 56832 50176 64256 }    #
-static 69  "RF help"          { 50944 45045 57600 }    #
-static 70  "CF canvas"        { 56576 51712 56576 }    #70
-static 71  "CF title"         { 50688 46336 50688 }    #
-static 72  "CF help"          { 45568 41472 45568 }    #
-static 73  "UNSS title"       { 64256 60176 60416 }    #
-static 74  "UNSS help"        { 57600 45056 54272 }    #
-static 75  "UNMS canvas"      { 65535 38550 43176 }    #75
-static 76  "UNMS title"       { 49344 29041 32382 }    #
-static 77  "UNMS help"        { 32896 19275 21588 65535 0 0 }    #
-static 78  "78"               {     0     0     0 }    #
-static 79  "79"               {     0     0     0 65000 65000 65000 }    #
-static 80  "invisible"        {     0     0     0 }    #
 
-rule 81  test1 {
- >=20        : purple-46
- >=0 && <10  : "UNMS help"
- >=10 && <20 : invisible
- default     : blue-26
+static 0 "White"    { 65535 65535 65535 } # dm2k-color
+static 1 "DM2K  1"    { 60652 60652 60652 } # dm2k-color
+static 2 "DM2K  2"    { 56026 56026 56026 } # dm2k-color
+static 3 "DM2K  3"    { 51400 51400 51400 } # dm2k-color
+static 4 "Global Canvas"    { 48059 48059 48059 } # dm2k-color
+static 5 "DM2K  5"    { 44718 44718 44718 } # dm2k-color
+static 6 "DM2K  6"    { 40606 40606 40606 } # dm2k-color
+static 7 "DM2K  7"    { 37265 37265 37265 } # dm2k-color
+static 8 "DM2K  8"    { 34181 34181 34181 } # dm2k-color
+static 9 "DM2K  9"    { 30840 30840 30840 } # dm2k-color
+static 10 "DM2K 10"    { 26985 26985 26985 } # dm2k-color
+static 11 "DM2K 11"    { 23130 23130 23130 } # dm2k-color
+static 12 "DM2K 12"    { 17990 17990 17990 } # dm2k-color
+static 13 "DM2K 13"    { 11565 11565 11565 } # dm2k-color
+static 14 "Black"    {     0     0     0 } # dm2k-color
+static 15 "DM2K 15"    {     0 55512     0 } # dm2k-color
+static 16 "DM2K 16"    {  7710 48059     0 } # dm2k-color
+static 17 "DM2K 17"    { 13107 39321     0 } # dm2k-color
+static 18 "DM2K 18"    { 11565 32639     0 } # dm2k-color
+static 19 "Title Microtron"    {  8481 27756     0 } # dm2k-color
+static 20 "DM2K 20"    { 65021     0     0 } # dm2k-color
+static 21 "DM2K 21"    { 57054  4883  2313 } # dm2k-color
+static 22 "DM2K 22"    { 48830  6425  2827 } # dm2k-color
+static 23 "DM2K 23"    { 41120  4626  1799 } # dm2k-color
+static 24 "Title Ring"    { 33410  1028     0 } # dm2k-color
+static 25 "DM2K 25"    { 22616 37779 65535 } # dm2k-color
+static 26 "DM2K 26"    { 22873 32382 57825 } # dm2k-color
+static 27 "DM2K 27"    { 19275 28270 51143 } # dm2k-color
+static 28 "DM2K 28"    { 14906 24158 43947 } # dm2k-color
+static 29 "Title Booster"    { 10023 21588 36237 } # dm2k-color
+static 30 "DM2K 30"    { 64507 62451 19018 } # dm2k-color
+static 31 "DM2K 31"    { 63993 56026 15420 } # dm2k-color
+static 32 "DM2K 32"    { 61166 46774 11051 } # dm2k-color
+static 33 "Title Diagnostic"    { 57825 37008  5397 } # dm2k-color
+static 34 "DM2K 34"    { 52685 24929     0 } # dm2k-color
+static 35 "DM2K 35"    { 65535 45232 65535 } # dm2k-color
+static 36 "Title HF"    { 54998 32639 58082 } # dm2k-color
+static 37 "DM2K 37"    { 44718 20046 48316 } # dm2k-color
+static 38 "DM2K 38"    { 35723  6682 38550 } # dm2k-color
+static 39 "Title InjLine"    { 24929  2570 30069 } # dm2k-color
+static 40 "DM2K 40"    { 42148 43690 65535 } # dm2k-color
+static 41 "DM2K 41"    { 34695 37779 58082 } # dm2k-color
+static 42 "DM2K 42"    { 27242 29555 49601 } # dm2k-color
+static 43 "DM2K 43"    { 19789 21074 42148 } # dm2k-color
+static 44 "DM2K 44"    { 13364 13107 34438 } # dm2k-color
+static 45 "DM2K 45"   { 51143 48059 28013 } # dm2k-color
+static 46 "DM2K 46"   { 47031 40349 23644 } # dm2k-color
+static 47 "DM2K 47"   { 42148 32382 15420 } # dm2k-color
+static 48 "DM2K 48"   { 32125 22102 10023 } # dm2k-color
+static 49 "Title Transferline"   { 22616 13364  3855 } # dm2k-color
+static 50 "DM2K 50"   { 39321 65535 65535 } # dm2k-color
+static 51 "DM2K 51"   { 29555 57311 65535 } # dm2k-color
+static 52 "DM2K 52"   { 20046 42405 63993 } # dm2k-color
+static 53 "DM2K 53"   { 10794 25443 58596 } # dm2k-color
+static 54 "Title Linac"   {  2570     0 47288 } # dm2k-color
+static 55 "BG Readback"   { 60395 61937 46517 } # dm2k-color
+static 56 "DM2K 56"   { 54484 56283 40349 } # dm2k-color
+static 57 "DM2K 57"   { 48059 49601 34695 } # dm2k-color
+static 58 "DM2K 58"   { 42662 42148 25186 } # dm2k-color
+static 59 "DM2K 59"   { 35723 33410 14649 } # dm2k-color
+static 60 "DM2K 60"   { 29555 65535 27499 } # dm2k-color
+static 61 "DM2K 61"   { 21074 56026 15163 } # dm2k-color
+static 62 "DM2K 62"   { 15420 46260  8224 } # dm2k-color
+static 63 "DM2K 63"   { 10280 37779  5397 } # dm2k-color
+static 64 "DM2K 64"   {  6682 29555  2313 } # dm2k-color
+static 65 "Disconn/Invalid"  { 65535 65535 65535 }    #0 white
+static 66 "Mon: NORMAL/alt"      {     0 65535     0 }    #15 green
+static 67 "Mon: NORMAL"  {     0 49344     0 }    #
+static 68 "Mon: MAJOR"       { 65535     0     0 }    #20 red
+static 69 "Mon: MAJOR/unack" { 49344     0     0 }    #
+static 70 "Mon: MINOR"       { 65535 65535     0 }    #35 yellow
+static 71 "Mon: MINOR/unack" { 49344 49344     0 }    #
+static 72 "EDM canvas"       { 51400 51400 51400 }    #
+static 73 "EDM help"         { 30840 30840 30840 }    #
+static 74 "EDM title"        { 40606 40606 40606 }    #
+static 75 "Shell/reldsp-alt" { 65535 45232 24672 }    #40 orange
+static 76 "Related display"  { 32896 22616 12336 }    # brown
+static 77 "Exit/Quit/Kill"   { 65535     0 65535 }    #45 purple
+static 78 "grey-1"           { 60652 60652 60652 }    #
+static 79 "grey-2"           { 56026 56026 56026 }    #
+static 80 "grey-4"           { 48059 48059 48059 }    #
+static 81 "grey-5"           { 44718 44718 44718 }    #5
+static 82 "grey-7"           { 37265 37265 37265 }    #
+static 83 "grey-8"           { 34181 34181 34181 }    #
+static 84 "grey-10"          { 26985 26985 26985 }    #10
+static 85 "grey-11"          { 23130 23130 23130 }    #
+static 86 "grey-12"          { 17990 17990 17990 }    #
+static 87 "grey-13"          { 11565 11565 11565 }    #
+static 88 "black-14"         {     0     0     0 }    #
+static 89 "green-16"         {     0 57568     0 }    #
+static 90 "green-18"         {     0 41120     0 }    #
+static 91 "green-19"         {     0 32896     0 }    #
+static 92 "Blue"       {     0     0 65535 }    #25 blue
+static 93 "Cyan"   {     0 65535 65535 }    #30 cyan
+static 94 "graygreen-20"     { 52736 56320 52480 }    #50
+static 95 "graygreen-30"      { 47360 50688 47104 }    #
+static 96 "greengray-40"       { 42496 45568 42240 }    #
+static 97 "green-20"        { 57600 63488 45312 }    #
+static 98 "green-21"         { 51712 57088 40704 }    #
+static 99 "brown-1"        { 62708 56026 43176 }    #55
+static 100 "brown-2"         { 47031 42148 32382 }    #
+static 101 "broen-3"          { 31354 28013 21588 }    #
+static 102 "mint-1"       { 46336 63744 55040 }    #
+static 103 "mint-2"        { 41472 57344 49408 }    #
+static 104 "steel-1"      { 49664 55808 55552 }    #60
+static 105 "steel-2"       { 44544 50176 49920 }    #
+static 106 "steel-3"        { 39936 45056 44800 }    #
+static 107 "sky-1"       { 45056 55808 63744 }    #
+static 108 "sky-2"        { 40448 50176 57344 }    #
+static 109 "misc-109"    { 52480 51712 56576 }    #65
+static 110 "misc-110"     { 47104 46336 50688 }    #
+static 111 "misc-111"      { 42240 41472 45568 }    #
+static 112 "misc-112"         { 56832 50176 64256 }    #
+static 113 "misc-113"          { 50944 45045 57600 }    #
+static 114 "misc-114"        { 56576 51712 56576 }    #70
+static 115 "misc-115"         { 50688 46336 50688 }    #
+static 116 "misc-116"          { 45568 41472 45568 }    #
+static 117 "misc-117"       { 64256 60176 60416 }    #
+static 118 "misc-118"        { 57600 45056 54272 }    #
+static 119 "misc-119"      { 65535 38550 43176 }    #75
+static 120 "dull red"       { 49344 29041 32382 }    #
+static 121 "blink Red"        { 32896 19275 21588 65535 0 0 }    #
+static 122 "blink Yellow"     { 65535 65535     0 49344 49344 0 }    #
+static 123 "79"               {     0     0     0 65000 65000 65000 }    #
+static 124 "invisible"        {     0     0     0 }    #
+static 125 "dummy 1"	{     0     0     0 } # dummy color for alignment...
+static 126 "dummy 2"	{     0     0     0 } # dummy color for alignment...
+static 127 "dummy 3"	{     0     0     0 } # dummy color for alignment...
+
+rule 128 "AlarmColorsLightBg" {
+ >=-0.5 && <0.5	 : "black"
+ >=0.5  && <1.5	 : "Title Diagnostic"
+ >=1.5  && <=2.5 : "Mon: MAJOR"
+ >=2.5  && <=10  : "DM2K 11"
 }
 
-rule 82  test1Inv {
- >=40 && <45 : 79
- >=45 && <47 : blue-26
+rule 129 green1 {
+ =1 : green-18
+ default : black
+}
+
+rule 130 green2 {
+ =2 : green-18
+ default : black
+}
+rule 131 green3 {
+ =3 : green-18
+ default : black
+}
+
+rule 132 green4 {
+ =4 : green-18
+ default : black
+}
+
+rule 133 greena {
+ !=0 : green-18
+ default : black
+}
+
+rule 134 greenback {
+ !=0 : green-18
+ default : grey-2
+}
+
+
+rule 135 HFstateFG {
+  =0 : black
+  =1 : "Mon: MINOR"
+  =2 : black
+  =3 : black
+  =4 : "Disconn/Invalid"
+}
+
+rule 136 HFstateBG {
+  =0 : grey-8
+  =1 : green-18
+  =2 : green-18
+  =3 : "Mon: MINOR"
+  =4 : "Mon: MAJOR"
+}
+
+rule 137 HFstateSimple {
+  =0 : grey-8
+  =1 : "Mon: MINOR"
+}
+
+rule 138 TextColors {
+  =0 : black
+  =1 : "Mon: MAJOR"
+  =2 : "DM2K 18"
+  =3 : "Title Linac"
+  =4 : "DM2K 34"
+  =5 : "blink Red"
+}
+
+rule 139 DisableCmdButton {
+  =0 : "DM2K 44"
+  default : "Global Canvas"
+}
+
+static 155 "black"	{ 0x0000 0x0000 0x0000 }
+static 141 "gray-1"	{ 0x4aaa 0x4aaa 0x4aaa }
+static 142 "gray-2"	{ 0x5777 0x5777 0x5777 }
+static 143 "gray-3"	{ 0x6444 0x6444 0x6444 }
+static 144 "gray-4"	{ 0x7111 0x7111 0x7111 }
+static 145 "gray-5"	{ 0x7eee 0x7eee 0x7eee }
+static 146 "gray-6"	{ 0x8bbb 0x8bbb 0x8bbb }
+static 147 "gray-7"	{ 0x9888 0x9888 0x9888 }
+static 148 "gray-8"	{ 0xa555 0xa555 0xa555 }
+static 149 "gray-9"	{ 0xb111 0xb111 0xb111 }
+static 150 "gray-10"	{ 0xbeee 0xbeee 0xbeee }
+static 151 "gray-11"	{ 0xcbbb 0xcbbb 0xcbbb }
+static 152 "gray-12"	{ 0xd888 0xd888 0xd888 }
+static 153 "gray-13"	{ 0xe555 0xe555 0xe555 }
+static 154 "gray-14"	{ 0xf222 0xf222 0xf222 }
+static 140  "white"	{ 0xffff 0xffff 0xffff } # Disconnected
+static 156 "red-1"	{ 0x5fff 0x0000 0x0000 }
+static 157 "red-2"	{ 0x7666 0x0000 0x0000 }
+static 158 "red-3"	{ 0x8ddd 0x0000 0x0000 }
+static 159 "red-4"	{ 0xa444 0x0000 0x0000 }
+static 160 "red-5"	{ 0xbaaa 0x0000 0x0000 }
+static 161 "red-6"	{ 0xd111 0x0000 0x0000 }
+static 162 "red-7"	{ 0xe888 0x0000 0x0000 }
+static 163 "red"	{ 0xffff 0x0000 0x0000 }
+static 164 "green-1"	{ 0x0000 0x5fff 0x0000 }
+static 165 "green-2"	{ 0x0000 0x7666 0x0000 }
+static 166 "green-3"	{ 0x0000 0x8ddd 0x0000 }
+static 167 "green-4"	{ 0x0000 0xa444 0x0000 }
+static 168 "green-5"	{ 0x0000 0xbaaa 0x0000 }
+static 169 "green-6"	{ 0x0000 0xd111 0x0000 }
+static 170 "green-7"	{ 0x0000 0xe888 0x0000 }
+static 171 "green"	{ 0x0000 0xffff 0x0000 }
+static 172 "blue-1"	{ 0x0000 0x0000 0x5fff }
+static 173 "blue-2"	{ 0x0000 0x0000 0x9444 }
+static 174 "blue-3"	{ 0x0000 0x0000 0xcaaa }
+static 175 "blue"	{ 0x0000 0x0000 0xffff }
+static 176 "yellow-1"	{ 0x5fff 0x5fff 0x0000 }
+static 177 "yellow-2"	{ 0x9444 0x9444 0x0000 }
+static 178 "yellow-3"	{ 0xcaaa 0xcaaa 0x0000 }
+static 179 "yellow"	{ 0xffff 0xffff 0x0000 }
+static 180 "cyan-1"	{ 0x0000 0x5fff 0x5fff }
+static 181 "cyan-2"	{ 0x0000 0x9444 0x9444 }
+static 182 "cyan-3"	{ 0x0000 0xcaaa 0xcaaa }
+static 183 "cyan"	{ 0x0000 0xffff 0xffff }
+static 184 "purple-1"	{ 0x5fff 0x0000 0x5fff }
+static 185 "purple-2"	{ 0x9444 0x0000 0x9444 }
+static 186 "purple-3"	{ 0xcaaa 0x0000 0xcaaa }
+static 187 "purple"	{ 0xffff 0x0000 0xffff }
+static 188 "rose-1"	{ 0x5fff 0x5222 0x5222 }
+static 189 "rose-2"	{ 0x7666 0x6555 0x6555 }
+static 190 "rose-3"	{ 0x8ddd 0x7999 0x7999 }
+static 191 "rose-4"	{ 0xa444 0x8ddd 0x8ddd }
+static 192 "rose-5"	{ 0xbaaa 0xa000 0xa000 }
+static 193 "rose-6"	{ 0xd111 0xb444 0xb444 }
+static 194 "rose-7"	{ 0xe888 0xc888 0xc888 }
+static 195 "rose-8"	{ 0xffff 0xdbbb 0xdbbb }
+static 196 "pastel-1"	{ 0x5222 0x5fff 0x5222 }
+static 197 "pastel-2"	{ 0x6555 0x7666 0x6555 }
+static 198 "pastel-3"	{ 0x7999 0x8ddd 0x7999 }
+static 199 "pastel-4"	{ 0x8ddd 0xa444 0x8ddd }
+static 200 "pastel-5"	{ 0xa000 0xbaaa 0xa000 }
+static 201 "pastel-6"	{ 0xb444 0xd111 0xb444 }
+static 202 "pastel-7"	{ 0xc888 0xe888 0xc888 }
+static 203 "pastel-8"	{ 0xdbbb 0xffff 0xdbbb }
+static 204 "lilac-1"	{ 0x5222 0x5222 0x5fff }
+static 205 "lilac-2"	{ 0x6555 0x6555 0x7666 }
+static 206 "lilac-3"	{ 0x7999 0x7999 0x8ddd }
+static 207 "lilac-4"	{ 0x8ddd 0x8ddd 0xa444 }
+static 208 "lilac-5"	{ 0xa000 0xa000 0xbaaa }
+static 209 "lilac-6"	{ 0xb444 0xb444 0xd111 }
+static 210 "lilac-7"	{ 0xc888 0xc888 0xe888 }
+static 211 "lilac-8"	{ 0xdbbb 0xdbbb 0xffff }
+static 212 "beige-1"	{ 0x5fff 0x5fff 0x5222 }
+static 213 "beige-2"	{ 0x7666 0x7666 0x6555 }
+static 214 "beige-3"	{ 0x8ddd 0x8ddd 0x7999 }
+static 215 "beige-4"	{ 0xa444 0xa444 0x8ddd }
+static 216 "beige-5"	{ 0xbaaa 0xbaaa 0xa000 }
+static 217 "beige-6"	{ 0xd111 0xd111 0xb444 }
+static 218 "beige-7"	{ 0xe888 0xe888 0xc888 }
+static 219 "beige-8"	{ 0xffff 0xffff 0xdbbb }
+
+
+# Error summary: 0 - green, 1 - yellow, 2 - red
+rule 220 "errsum" {
+ >=-0.5 && <0.5	 : "green"
+ >=0.5  && <1.5	 : "yellow"
+ >=1.5  && <=2.5 : "red"
+}
+
+# Bicolor LED
+rule 221 "led" {
+ >=-0.5 && <0.5	 : "green"
+ >=0.5  && <1.5	 : "red"
+}
+
+# Inverted bicolor LED
+rule 222 "nled" {
+ >=-0.5 && <0.5	 : "red"
+ >=0.5  && <1.5	 : "green"
+}
+
+static 223 "blink White"        { 65535 65535 65535 58982 58982 58982 }    #
+
+rule 224 "AlarmColors" {
+ >=-0.5 && <0.5	 : "Mon: NORMAL"
+ >=0.5  && <1.5	 : "Mon: MINOR"
+ >=1.5  && <=2.5 : "Mon: MAJOR"
+ >=2.5  && <=10  : "Disconn/Invalid"
 }
 
 menumap { 
- test1
- test1Inv
+ "Global Canvas"
+ "BG Readback"
+
+ "Title Microtron"
+ "Title Linac"
+ "Title InjLine"
+ "Title Booster"
+ "Title Transferline"
+ "Title Ring"
+ "Title Diagnostic"
+ "Title HF"
+
  "Disconn/Invalid"
- "Wid-bg/Anno-pri"
- "Wid-alt/Anno-sec"
- "Monitor: MAJOR"
- "Mon: MAJOR/unack"
- "Monitor: MINOR"
- "Mon: MINOR/unack"
- "Monitor: NORMAL"
- "Monitor: alt"
- "Controller"
- "Controller/alt"
- "Related display"
- "Shell/reldsp-alt"
- "Exit/Quit/Kill"
- "GLOBAL canvas"
- "GLOBAL title"
- "GLOBAL help"
- "FE canvas"
- "FE title"
- "FE help"
- "LINAC canvas"
- "LINAC title"
- "LINAC help"
- "RING canvas"
- "RING title"
- "RING help"
- "TARGET canvas"
- "TARGET title"
- "TARGET help"
- "CF canvas"
- "CF title"
- "CF help"
- "UNMS canvas"
- "UNMS title"
- "UNMS help"
- "VAC title"
- "VAC help"
- "COOL title"
- "COOL help"
- "CRYO title"
- "CRYO help"
- "RF title"
- "RF help"
- "UNSS title"
- "UNSS help"
- "grey-1"
- "grey-2"
- "grey-4"
- "grey-7"
- "grey-8"
- "grey-11"
- "grey-12"
- "grey-13"
- "black-14"
- "green-16"
- "green-18"
- "green-19"
- "red-21"
- "red-23"
- "red-24"
- "blue-26"
- "blue-27"
- "blue-28"
- "blue-29"
- "cyan-31"
- "cyan-32"
- "cyan-33"
- "cyan-34"
- "yellow-36"
- "yellow-38"
- "yellow-39"
- "orange-41"
- "orange-42"
- "brown-43"
- "purple-46"
- "purple-47"
- "48"
- "49"
- "78"
- "79"
+ "Mon: MAJOR"
+ "Mon: MINOR"
+ "Mon: NORMAL"
+
+ "Black"
+ "blink Red"
+ "blink Yellow"
  }
 
 alarm { 
-  disconnected : "Disconn/Invalid"
+  disconnected : "blink White"
   invalid      : "Disconn/Invalid"
-  minor        : "Monitor: MINOR"
-  major        : "Monitor: MAJOR"
-  noalarm      : *
+  minor        : "Mon: MINOR"
+  major        : "Mon: MAJOR"
+  noalarm      : "Mon: NORMAL"
  }
+
