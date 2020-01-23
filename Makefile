@@ -38,3 +38,30 @@ else
       include $(EPICS)/config/RULES_DIRS
     endif
 endif
+#----------------------------------------
+#  ADD RULES AFTER THIS LINE
+
+ifndef T_A
+
+MYDIR:=$(shell readlink -e $(TOP))
+
+install build rebuild buildInstall: make_script
+
+make_script: $(TOP)/bin/$(EPICS_HOST_ARCH)/edm
+
+$(TOP)/bin/$(EPICS_HOST_ARCH)/edm:
+	mkdir -p $(@D)
+	rm -f $@
+	echo "export EDMBASE=$(MYDIR)" >> $@
+	echo "export EDM=\$$EDMBASE/bin/\$$EPICS_HOST_ARCH/edmbin" >> $@
+	echo "export EDMFILES=\$$EDMBASE/setup" >> $@
+	echo "export EDMOBJECTS=\$$EDMBASE/setup" >> $@
+	echo "export EDMPVOBJECTS=\$$EDMBASE/setup" >> $@
+	echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:\$$EDMBASE/lib/\$$EPICS_HOST_ARCH" >> $@
+	echo "\$$EDM \$$@" >> $@
+	chmod a+x $@
+
+
+
+endif
+

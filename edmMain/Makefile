@@ -13,22 +13,22 @@ ifdef EPICS_HOST_ARCH
    # Add Debugging
    #USR_CXXFLAGS_Linux += -g -O0
 
-   edm_LIBS += cfcaa62e-8199-11d3-a77f-00104b8742df 
-   edm_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+   edmbin_LIBS += cfcaa62e-8199-11d3-a77f-00104b8742df 
+   edmbin_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
 
-   edm_LIBS_Linux += Xm Xmu Xt Xtst X11
-   edm_SYS_LIBS_Linux += pthread dl
+   edmbin_LIBS_Linux += Xm Xmu Xt Xtst X11
+   edmbin_SYS_LIBS_Linux += pthread dl
    
-   edm_LIBS_Darwin += Xm Xmu Xt Xtst X11
-   edm_SYS_LIBS_Darwin += pthread dl
+   edmbin_LIBS_Darwin += Xm Xmu Xt Xtst X11
+   edmbin_SYS_LIBS_Darwin += pthread dl
 
-   edm_LIBS_solaris += Xm Xt Xmu X11 Xext
-   edm_SYS_LIBS_solaris += pthread dl rt socket nsl
+   edmbin_LIBS_solaris += Xm Xt Xmu X11 Xext
+   edmbin_SYS_LIBS_solaris += pthread dl rt socket nsl
 
    USR_LIBS_hpux11_11_mt = Xm Xt Xmu X11 Xext
    USR_SYS_LIBS_hpux11_11_mt = pthread
 
-   PROD = edm
+   PROD = edmbin
 
 #  AJF: For solaris builds
 #  OP_SYS_LDFLAGS = -z ignore -z combreloc -z lazyload
@@ -76,7 +76,7 @@ ifdef EPICS_HOST_ARCH
    Xlib_DIR = $(X11_LIB)
    HCLXmu_DIR = $(X11_LIB)
    
-   edm_SRCS += main.cc
+   edmbin_SRCS += main.cc
 
    include $(TOP)/configure/RULES
    

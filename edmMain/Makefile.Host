@@ -22,7 +22,7 @@ USR_LDFLAGS += -L$(INSTALL_LIB)
 # Add Debugging
 #USR_LDFLAGS += -g
 
-PROD = edm
+PROD = edmbin
 
 PROD_LIBS += ca Com
 
