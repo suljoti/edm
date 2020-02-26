@@ -1,0 +1,8 @@
+{
+    "alias": [
+        "BASE:EPICS_BASE"
+    ],
+    "module": [
+        "BASE:R3-15-6-bessy5-linux"
+    ]
+}
