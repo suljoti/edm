@@ -55,7 +55,8 @@ $(TOP)/bin/$(EPICS_HOST_ARCH)/edm:
 	mkdir -p $(@D)
 	rm -f $@
 	(cd setup && . ./setup.sh >/dev/null && env | grep EDM | sed -e 's/^/export /') > $@
-	echo "export LD_LIBRARY_PATH=$$EDM_LD_LIBRARY_PATH:$$LD_LIBRARY_PATH" >> $@
+	echo "export LD_LIBRARY_PATH=\$$EDM_LD_LIBRARY_PATH:\$$LD_LIBRARY_PATH" >> $@
+	echo "\$$EDM \$$@" >> $@
 	chmod a+x $@
 endif
 
