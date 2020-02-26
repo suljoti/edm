@@ -49,19 +49,13 @@ install build rebuild buildInstall: make_script
 
 make_script: $(TOP)/bin/$(EPICS_HOST_ARCH)/edm
 
+# note: setup.sh does not only set environment variables but also creates files:
+
 $(TOP)/bin/$(EPICS_HOST_ARCH)/edm:
 	mkdir -p $(@D)
 	rm -f $@
-	echo "export EDMBASE=$(MYDIR)" >> $@
-	echo "export EDM=\$$EDMBASE/bin/\$$EPICS_HOST_ARCH/edmbin" >> $@
-	echo "export EDMFILES=\$$EDMBASE/setup" >> $@
-	echo "export EDMOBJECTS=\$$EDMBASE/setup" >> $@
-	echo "export EDMPVOBJECTS=\$$EDMBASE/setup" >> $@
-	echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:\$$EDMBASE/lib/\$$EPICS_HOST_ARCH" >> $@
-	echo "\$$EDM \$$@" >> $@
+	(cd setup && . ./setup.sh >/dev/null && env | grep EDM | sed -e 's/^/export /') > $@
+	echo "export LD_LIBRARY_PATH=$$EDM_LD_LIBRARY_PATH:$$LD_LIBRARY_PATH" >> $@
 	chmod a+x $@
-
-
-
 endif
 
