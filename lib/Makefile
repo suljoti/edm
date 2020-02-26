@@ -26,7 +26,7 @@ ifdef EPICS_HOST_ARCH
   USR_LIBS_Darwin += Xm Xt Xtst X11
   USR_SYS_LIBS_Darwin += pthread dl
 
-  USR_LIBS_Linux += Xm Xt Xtst X11
+  USR_SYS_LIBS_Linux += Xm Xt Xtst X11
   USR_SYS_LIBS_Linux += pthread dl
 
   USR_LIBS_solaris += Xm Xt Xmu X11 Xext

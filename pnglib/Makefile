@@ -22,7 +22,7 @@ PNG_INC=/usr/include
    USR_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
 
-   USR_LIBS_Linux += Xm Xt Xtst X11
+   USR_SYS_LIBS_Linux += Xm Xt Xtst X11
    USR_SYS_LIBS_Linux += pthread dl png z
 
    USR_LIBS_Darwin += Xm Xt Xtst X11

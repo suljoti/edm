@@ -13,7 +13,7 @@ ifdef EPICS_HOST_ARCH
 
    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
 
-   EdmBase_LIBS_Linux += Xm Xt Xtst X11
+   EdmBase_SYS_LIBS_Linux += Xm Xt Xtst X11
    EdmBase_SYS_LIBS_Linux += pthread dl
 
    EdmBase_LIBS_Darwin += Xm Xt Xtst X11

@@ -10,7 +10,7 @@ ifdef EPICS_HOST_ARCH
    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
 
    USR_CXXFLAGS_Linux += -DSINGLE_THREADED=1 -D__epics__=1
-   USR_LIBS_Linux += Xm Xt Xtst X11
+   USR_SYS_LIBS_Linux += Xm Xt Xtst X11
    USR_SYS_LIBS_Linux += pthread dl
    
    USR_CXXFLAGS_Darwin += -DSINGLE_THREADED=1 -D__epics__=1 -Wno-long-long

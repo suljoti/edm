@@ -19,9 +19,9 @@ USR_CXXFLAGS_Linux += -g -O0
 
 
 ifeq ($(USE_CURL), YES)
-	USR_LIBS_Linux = Xm Xt Xtst X11 pthread dl curl
+	USR_SYS_LIBS_Linux = Xm Xt Xtst X11 pthread dl curl
 else
-	USR_LIBS_Linux = Xm Xt Xtst X11 pthread dl
+	USR_SYS_LIBS_Linux = Xm Xt Xtst X11 pthread dl
 endif
 
 

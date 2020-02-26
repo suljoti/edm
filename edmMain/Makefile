@@ -16,7 +16,7 @@ ifdef EPICS_HOST_ARCH
    edmbin_LIBS += cfcaa62e-8199-11d3-a77f-00104b8742df 
    edmbin_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
 
-   edmbin_LIBS_Linux += Xm Xmu Xt Xtst X11
+   edmbin_SYS_LIBS_Linux += Xm Xmu Xt Xtst X11
    edmbin_SYS_LIBS_Linux += pthread dl
    
    edmbin_LIBS_Darwin += Xm Xmu Xt Xtst X11
